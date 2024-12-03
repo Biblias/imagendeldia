@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen Aleatoria</title>
+
+    <!-- Cargar los íconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #edebd4;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 90%;
+            max-height: 90%;
+            font-family: 'Uncial Antiqua', serif;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        .icon-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .icon-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #4CAF50;
+            transition: color 0.3s ease;
+        }
+
+        .icon-btn:hover {
+            color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <img id="randomImage" src="https://github.com/Biblias/wallpaperoftheday/blob/main/Image1.jpg?raw=true" alt="Imagen aleatoria"> <!-- Imagen aleatoria -->
+    <br>
+  
+</div>
+ <!-- Enlace a Google Fonts para la fuente bíblica -->
+ <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+
+ 
+<script>
+    // URLs de imágenes alojadas en tu repositorio de GitHub
+    const imageUrls = [
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image1.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image10.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image100.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image101.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image102.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image103.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image104.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image105.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image106.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image11.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image12.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image13.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image14.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image15.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image16.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image17.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image18.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image19.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image2.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image20.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image21.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image22.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image23.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image24.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image25.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image26.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image27.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image28.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image29.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image3.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image30.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image31.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image32.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image33.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image35.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image36.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image37.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image38.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image39.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image4.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image40.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image41.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image42.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image43.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image44.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image45.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image46.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image47.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image48.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image49.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image5.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image50.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image51.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image52.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image53.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image54.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image56.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image57.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image58.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image59.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image6.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image60.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image61.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image62.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image63.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image64.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image65.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image66.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image67.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image68.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image69.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image7.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image70.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image71.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image72.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image73.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image74.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image75.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image76.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image77.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image78.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image79.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image8.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image80.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image81.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image82.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image83.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image84.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image85.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image86.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image87.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image88.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image89.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image9.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image90.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image91.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image92.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image93.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image94.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image95.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image96.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image97.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image98.jpg?raw=true',
+'https://github.com/Biblias/wallpaperoftheday/blob/main/Image99.jpg?raw=true',
+
+    ];
+
+    // Selecciona una imagen aleatoria y la muestra
+    function showRandomImage() {
+        const randomIndex = Math.floor(Math.random() * imageUrls.length);
+        const imageElement = document.getElementById('randomImage');
+        const downloadBtn = document.getElementById('downloadBtn');
+        
+        const selectedImageUrl = imageUrls[randomIndex];
+        
+        // Actualiza la imagen aleatoria mostrada
+        imageElement.src = selectedImageUrl;
+
+        // Actualiza el botón de descarga con el enlace de la imagen
+        downloadBtn.href = selectedImageUrl;
+
+        return selectedImageUrl;
+    }
+
+    // Llamada inicial para mostrar una imagen aleatoria al cargar la página
+    showRandomImage();
+</script>
+
+</body>
+</html>
