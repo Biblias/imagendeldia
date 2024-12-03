@@ -63,7 +63,15 @@
 <div class="container">
     
     <img id="randomImage" src="https://github.com/Biblias/wallpaperoftheday/blob/main/Image1.jpg?raw=true" alt="Imagen aleatoria"> <!-- Imagen aleatoria -->
+    
     <br>
+    <div class="icon-buttons">
+        <!-- Botón para copiar URL de la imagen -->
+        <button class="icon-btn" onclick="copyImageUrl()"><i class="fas fa-copy"></i> Copiar URL</button>
+        <!-- Botón para descargar la imagen -->
+        <a id="downloadBtn" href="#" download="image.jpg" class="icon-btn"><i class="fas fa-download"></i> Descargar</a>
+    </div>
+    
   
 </div>
  <!-- Enlace a Google Fonts para la fuente bíblica -->
@@ -199,7 +207,20 @@
 
     // Llamada inicial para mostrar una imagen aleatoria al cargar la página
     showRandomImage();
-</script>
+
+    // Función para copiar la URL de la imagen actual al portapapeles
+    function copyImageUrl() {
+        const imageElement = document.getElementById('randomImage');
+        const imageUrl = imageElement.src;
+
+        navigator.clipboard.writeText(imageUrl).then(() => {
+            alert('URL copiada al portapapeles: ' + imageUrl);
+        }).catch(err => {
+            alert('Error al copiar la URL: ' + err);
+        });
+    }
+    </script>
+    
 
 </body>
 </html>
